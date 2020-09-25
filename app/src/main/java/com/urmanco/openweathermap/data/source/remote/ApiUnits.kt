@@ -8,9 +8,9 @@ import java.io.IOException
 
 
 
-suspend fun <T> safeCallApi(dispacher: CoroutineDispatcher,apiCall: suspend () -> T): Result<T> {
+suspend fun <T> safeCallApi(dispatcher: CoroutineDispatcher,apiCall: suspend () -> T): Result<T> {
 
-    return  withContext(dispacher){
+    return  withContext(dispatcher){
         try {
             Result.Success(apiCall.invoke())
         }catch (throwable: Throwable){

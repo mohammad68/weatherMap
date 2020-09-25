@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitBuilder {
-    private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
+
     private val okHttpClient = getOkHttpWithInterceptor()
 
     private fun getRetrofit(): Retrofit = Retrofit.Builder()

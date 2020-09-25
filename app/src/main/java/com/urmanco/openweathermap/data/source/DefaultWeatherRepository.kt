@@ -4,8 +4,7 @@ import android.util.Log
 import com.urmanco.openweathermap.data.source.Model.Weather
 import com.urmanco.openweathermap.data.source.local.DefaultWeatherLocalDataSource
 import com.urmanco.openweathermap.data.source.remote.*
-import com.urmanco.openweathermap.data.source.remote.ApiConst.GENERIC_ERROR
-import com.urmanco.openweathermap.data.source.remote.ApiConst.NETWORK_ERROR
+
 import kotlinx.coroutines.CoroutineDispatcher
 import java.lang.IllegalStateException
 
@@ -51,7 +50,7 @@ class DefaultWeatherRepository(private val ioDispatcher: CoroutineDispatcher,
 
     private suspend fun fetchWeatherFromRemote(): Result<Weather>{
         return safeCallApi(ioDispatcher){
-            apiService.getWeather(ApiConst.LAT,ApiConst.LON,ApiConst.APP_ID,ApiConst.UNITS)
+            apiService.getWeather(LAT,LON,APP_ID,UNITS)
         }
     }
 
