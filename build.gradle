@@ -43,5 +43,6 @@ ext {
     gson = "2.8.5"
     koin = "2.2.0-alpha-1"
     okHttp = "4.9.0"
+    glide = "4.11.0"
 
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Open weather map</string>
+    <string name="weather_orumieh">هواشناسی ارومیه</string>
+
 </resources>

@@ -3,6 +3,7 @@ package com.urmanco.openweathermap.weather
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.bumptech.glide.Glide
 import com.urmanco.openweathermap.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,6 +35,10 @@ class WeatherActivity : AppCompatActivity() {
             txt.text = weather.current.temp
 
         })
+
+        Glide.with(this)
+            .load("http://openweathermap.org/img/wn/10d@2x.png")
+            .into(imageView)
 
     }
 }
