@@ -23,6 +23,7 @@ class WeatherAdapter(private val daily:  List<Daily>): RecyclerView.Adapter<Weat
 
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         holder.itemWeatherBinding.daily = daily[position]
+        holder.itemWeatherBinding.position = position
     }
 
     override fun getItemCount(): Int = daily.size
