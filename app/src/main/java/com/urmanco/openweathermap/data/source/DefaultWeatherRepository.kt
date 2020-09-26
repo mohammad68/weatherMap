@@ -1,7 +1,7 @@
 package com.urmanco.openweathermap.data.source
 
 import android.util.Log
-import com.urmanco.openweathermap.data.source.Model.Weather
+import com.urmanco.openweathermap.data.source.model.Weather
 import com.urmanco.openweathermap.data.source.local.DefaultWeatherLocalDataSource
 import com.urmanco.openweathermap.data.source.remote.*
 
@@ -23,8 +23,9 @@ class DefaultWeatherRepository(private val ioDispatcher: CoroutineDispatcher,
 
     private suspend fun fetchWeatherFromRemoteOrLocal(): Result<Weather> {
 
-        //Try to remote data
-        when(val remoteWeather = fetchWeatherFromRemote()){
+        //Try to fetching remote data
+        val remoteWeather = fetchWeatherFromRemote()
+        when(remoteWeather){
             is Result.Success ->{
                 refreshLocalDataSource(remoteWeather.data)
                 return remoteWeather
@@ -54,11 +55,8 @@ class DefaultWeatherRepository(private val ioDispatcher: CoroutineDispatcher,
         }
     }
 
-
     private suspend fun refreshLocalDataSource(data: Weather) {
         localDataSource.deleteAllWeather()
         localDataSource.saveWeather(data)
     }
-
-
 }

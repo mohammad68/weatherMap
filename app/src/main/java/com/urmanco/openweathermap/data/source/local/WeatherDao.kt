@@ -1,7 +1,7 @@
 package com.urmanco.openweathermap.data.source.local
 
 import androidx.room.*
-import com.urmanco.openweathermap.data.source.Model.Weather
+import com.urmanco.openweathermap.data.source.model.Weather
 
 @Dao
 interface WeatherDao {

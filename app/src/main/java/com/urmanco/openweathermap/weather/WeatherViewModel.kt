@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.urmanco.openweathermap.data.source.Model.Weather
+import com.urmanco.openweathermap.data.source.model.Weather
 import com.urmanco.openweathermap.data.source.Result
 import com.urmanco.openweathermap.domain.GetWeatherUseCase
 import kotlinx.coroutines.launch

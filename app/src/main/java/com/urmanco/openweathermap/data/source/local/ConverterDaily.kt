@@ -3,7 +3,7 @@ package com.urmanco.openweathermap.data.source.local
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.urmanco.openweathermap.data.source.Model.Daily
+import com.urmanco.openweathermap.data.source.model.Daily
 
 class ConverterDaily {
     private val gson = Gson()

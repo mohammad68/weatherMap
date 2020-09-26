@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Open weather map</string>
-    <string name="weather_orumieh">هواشناسی ارومیه</string>
+    <string name="weather_Urmia">هواشناسی ارومیه</string>
+    <string name="windSpeed">سرعت باد:</string>
+    <string name="pressure">فشارهوا:</string>
+    <string name="humidity">رطوبت:</string>
+    <string name="weather_icon">weatherIcon</string>
 
 </resources>

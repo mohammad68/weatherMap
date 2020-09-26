@@ -17,12 +17,11 @@ suspend fun <T> safeCallApi(dispatcher: CoroutineDispatcher,apiCall: suspend () 
             when(throwable){
                 is IOException -> Result.NetworkError
                 is HttpException -> {
-                    val code = throwable.code()
                     val errorMessage = throwable.message()
                     Result.GenericError(errorMessage)
                 }
                 else -> {
-                    Result.GenericError(null)
+                    Result.GenericError(UNKNOWN_EXCEPTION)
                 }
 
             }

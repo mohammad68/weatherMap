@@ -44,5 +44,7 @@ ext {
     koin = "2.2.0-alpha-1"
     okHttp = "4.9.0"
     glide = "4.11.0"
+    recyclerView = "1.1.0"
+    constraintlayout = "2.0.1"
 
 }
