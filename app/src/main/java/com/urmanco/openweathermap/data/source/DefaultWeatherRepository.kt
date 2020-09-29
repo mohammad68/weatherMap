@@ -8,10 +8,8 @@ import com.urmanco.openweathermap.data.source.remote.*
 import kotlinx.coroutines.CoroutineDispatcher
 import java.lang.IllegalStateException
 
-class DefaultWeatherRepository(private val ioDispatcher: CoroutineDispatcher,
-                               private val apiService: ApiService,
+class DefaultWeatherRepository(private val apiService: ApiService,
                                private val localDataSource: DefaultWeatherLocalDataSource ) : WeatherRepository {
-
 
     private val TAG = "Weather Repository"
     private val ERROR_FETCHING_FROM_REMOTE_AND_LOCAL =  "Error fetching from remote and local"
@@ -50,7 +48,7 @@ class DefaultWeatherRepository(private val ioDispatcher: CoroutineDispatcher,
 
 
     private suspend fun fetchWeatherFromRemote(): Result<Weather>{
-        return safeCallApi(ioDispatcher){
+        return safeCallApi(){
             apiService.getWeather(LAT,LON,APP_ID,UNITS)
         }
     }

@@ -1,17 +1,13 @@
 package com.urmanco.openweathermap.data.source.remote
 
 import com.urmanco.openweathermap.data.source.Result
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 
 
 
-suspend fun <T> safeCallApi(dispatcher: CoroutineDispatcher,apiCall: suspend () -> T): Result<T> {
-
-    return  withContext(dispatcher){
-        try {
+suspend fun <T> safeCallApi(apiCall: suspend () -> T): Result<T> {
+    return try {
             Result.Success(apiCall.invoke())
         }catch (throwable: Throwable){
             when(throwable){
@@ -26,7 +22,7 @@ suspend fun <T> safeCallApi(dispatcher: CoroutineDispatcher,apiCall: suspend () 
 
             }
         }
-    }
+
 }
 
 

@@ -6,7 +6,6 @@ import com.urmanco.openweathermap.data.source.local.DefaultWeatherLocalDataSourc
 import com.urmanco.openweathermap.data.source.remote.RetrofitBuilder
 import com.urmanco.openweathermap.domain.GetWeatherUseCase
 import com.urmanco.openweathermap.weather.WeatherViewModel
-import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -14,8 +13,8 @@ import org.koin.dsl.module
 val appModule: Module = module {
     single { RetrofitBuilder.apiService }
     single { WeatherDatabase.getDatabase(get()).weatherDao()}
-    single { DefaultWeatherLocalDataSource(Dispatchers.IO,get()) }
-    single { DefaultWeatherRepository(Dispatchers.IO,get(),get()) }
+    single { DefaultWeatherLocalDataSource(get()) }
+    single { DefaultWeatherRepository(get(),get()) }
     factory { GetWeatherUseCase(get() ) }
     viewModel { WeatherViewModel(get()) }
 }
