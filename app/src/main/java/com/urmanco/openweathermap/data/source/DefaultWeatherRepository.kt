@@ -2,14 +2,12 @@ package com.urmanco.openweathermap.data.source
 
 import android.util.Log
 import com.urmanco.openweathermap.data.source.model.Weather
-import com.urmanco.openweathermap.data.source.local.DefaultWeatherLocalDataSource
+import com.urmanco.openweathermap.data.source.local.WeatherDataSource
 import com.urmanco.openweathermap.data.source.remote.*
-
-import kotlinx.coroutines.CoroutineDispatcher
 import java.lang.IllegalStateException
 
 class DefaultWeatherRepository(private val apiService: ApiService,
-                               private val localDataSource: DefaultWeatherLocalDataSource ) : WeatherRepository {
+                               private val localDataSource: WeatherDataSource ) : WeatherRepository {
 
     private val TAG = "Weather Repository"
     private val ERROR_FETCHING_FROM_REMOTE_AND_LOCAL =  "Error fetching from remote and local"

@@ -1,22 +1,24 @@
 package com.urmanco.openweathermap.data.source
 
-import com.urmanco.openweathermap.data.source.local.WeatherLocalDataSource
+import com.urmanco.openweathermap.data.source.local.WeatherDataSource
 import com.urmanco.openweathermap.data.source.model.Weather
 import kotlinx.coroutines.delay
 import kotlin.random.Random
 
-class FakeLocalDataSource(var weather: Weather?) : WeatherLocalDataSource{
+class FakeLocalDataSource() : WeatherDataSource{
+
+    private var _weather: Weather? = null
 
     override suspend fun saveWeather(weather: Weather) {
-       delay(100)
+       _weather = weather
     }
 
     override suspend fun deleteAllWeather() {
-        delay(100)
+       _weather = null
     }
 
     override suspend fun getWeather(): Result<Weather>{
-        weather?.let { return Result.Success(it)}
+        _weather?.let { return Result.Success(it)}
         return  generateError()
     }
 
