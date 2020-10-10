@@ -1,7 +1,11 @@
 package com.urmanco.openweathermap.data.error
 
 
-class Error(val code: Int = DEFAULT_ERROR ,val description: String? = "")
+class Error(val code: Int = DEFAULT_ERROR ,val description: String? = ""){
+    override fun toString(): String {
+        return "Error -> code=[${code}] description=[${description}]"
+    }
+}
 
 const val SERVER_ERROR = -1
 const val NETWORK_ERROR = -2

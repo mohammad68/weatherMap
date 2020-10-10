@@ -14,14 +14,20 @@ import kotlinx.coroutines.launch
 
 class WeatherViewModel(private val getWeatherUseCase : GetWeatherUseCase): ViewModel() {
 
-   private val _dataLoading = MutableLiveData<Boolean>()
-   val dataLoading: LiveData<Boolean> = _dataLoading
+    private val _dataLoading = MutableLiveData(false)
+    val dataLoading: LiveData<Boolean> = _dataLoading
 
-   private val _errorMessage = MutableLiveData<Int>()
-   val errorMessage: LiveData<Int> = _errorMessage
+    private val _errorMessageId = MutableLiveData<Int>()
+    val errorMessageId: LiveData<Int> = _errorMessageId
+
+    private val _hasError = MutableLiveData(false)
+    val hasError: LiveData<Boolean> = _hasError
 
     private val _weather = MutableLiveData<Weather>()
     val weather: LiveData<Weather> = _weather
+
+    private val _successMessage =  MutableLiveData<String>()
+    val successMessage: LiveData<String> = _successMessage
 
 
     init {
@@ -34,18 +40,23 @@ class WeatherViewModel(private val getWeatherUseCase : GetWeatherUseCase): ViewM
         }
 
         _dataLoading.value = true
+        _hasError.value = false
+        _errorMessageId.value = R.string.empty_string
 
         viewModelScope.launch {
-
             getWeatherUseCase().let { result ->
-                if(result is Result.Success){
-                    _errorMessage.value = R.string.empty_string
-                    _weather.value = result.data
 
+                _dataLoading.value = false
+
+                if(result is Result.Success){
+                    _weather.value = result.data
+                    _successMessage.value = result.message
                 }else{
-                    if(result is Result.DataError)
-                    _errorMessage.value = ErrorMapper.errors[result.error.code]
-                    _dataLoading.value = false
+                    if(result is Result.DataError){
+                        _errorMessageId.value = ErrorMapper.errors[result.error.code]
+                        _hasError.value = true
+                    }
+
                 }
             }
         }

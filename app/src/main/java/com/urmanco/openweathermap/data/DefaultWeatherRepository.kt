@@ -19,21 +19,24 @@ class DefaultWeatherRepository(private val apiService: ApiService,
         when(val remoteWeatherResult = fetchWeatherFromRemote()){
             is Result.Success -> {
                 refreshLocalDataSource(remoteWeatherResult.data)
-                return remoteWeatherResult
+                Log.w(TAG,FETCH_FROM_REMOTE)
+                remoteWeatherResult.message = FETCH_FROM_REMOTE
+                return  remoteWeatherResult
             }
             is Result.DataError -> {
-              Log.w(TAG,remoteWeatherResult.toString())
-              return  remoteWeatherResult
+              Log.w(TAG,remoteWeatherResult.error.toString())
             }
         }
 
         //------Local if remote failed
         val localWeather = localDataSource.getWeather()
-        if(localWeather is Result.Success<Weather>)
+        if(localWeather is Result.Success<Weather>){
+            Log.w(TAG,FETCH_FROM_CACHE)
+            localWeather.message = FETCH_FROM_CACHE
             return localWeather
-        else
-            Log.w(TAG,localWeather.toString())
-
+        } else if(localWeather is Result.DataError){
+            Log.w(TAG,localWeather.error.toString())
+        }
 
         //----- Failed Remote and Local
          return  Result.DataError(Error(ERROR_FETCHING_FROM_REMOTE_AND_LOCAL))
@@ -55,5 +58,7 @@ class DefaultWeatherRepository(private val apiService: ApiService,
 
     companion object{
         const val TAG = "WeatherRepository"
+        const val FETCH_FROM_REMOTE = "Fetch from remote"
+        const val FETCH_FROM_CACHE = "fetch from cache"
     }
 }

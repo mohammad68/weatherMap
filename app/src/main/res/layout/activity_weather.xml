@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <import type="android.view.View"/>
         <variable name="viewModel" type="com.urmanco.openweathermap.weather.WeatherViewModel" />
         <variable name="weatherAdapter" type="com.urmanco.openweathermap.weather.WeatherAdapter" />
     </data>
@@ -100,6 +101,7 @@
         </LinearLayout>
 
         <ProgressBar
+            android:visibility="@{viewModel.dataLoading? View.VISIBLE : View.GONE}"
             android:id="@+id/prgLoading"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
@@ -111,6 +113,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:visibility="@{viewModel.hasError? View.VISIBLE : View.GONE}"
+            app:setTextById="@{viewModel.errorMessageId}"
             android:id="@+id/txtError"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,6 +124,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnRefresh"
+            android:onClick="@{() -> viewModel.refresh()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Refresh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,6 +1,7 @@
 package com.urmanco.openweathermap.utils
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,5 +30,12 @@ object AppUtil {
             }
 
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter(value=["setTextById"])
+    fun setTextById(view: TextView,stringId: Int){
+        if(stringId != 0)
+              view.text = view.context.resources.getText(stringId)
     }
 }
