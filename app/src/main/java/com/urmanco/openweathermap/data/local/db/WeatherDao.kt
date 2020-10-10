@@ -1,7 +1,8 @@
-package com.urmanco.openweathermap.data.source.local
+package com.urmanco.openweathermap.data.local.db
 
 import androidx.room.*
-import com.urmanco.openweathermap.data.source.model.Weather
+import com.urmanco.openweathermap.data.model.Weather
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WeatherDao {

@@ -1,4 +1,4 @@
-package com.urmanco.openweathermap.data.source.remote
+package com.urmanco.openweathermap.data.remote
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

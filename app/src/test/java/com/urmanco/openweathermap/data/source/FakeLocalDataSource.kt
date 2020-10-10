@@ -1,11 +1,10 @@
 package com.urmanco.openweathermap.data.source
 
-import com.urmanco.openweathermap.data.source.local.WeatherDataSource
-import com.urmanco.openweathermap.data.source.model.Weather
-import kotlinx.coroutines.delay
+import com.urmanco.openweathermap.data.local.WeatherDataSource
+import com.urmanco.openweathermap.data.model.Weather
 import kotlin.random.Random
 
-class FakeLocalDataSource() : WeatherDataSource{
+class FakeLocalDataSource() : WeatherDataSource {
 
     private var _weather: Weather? = null
 

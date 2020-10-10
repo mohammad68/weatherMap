@@ -1,4 +1,4 @@
-package com.urmanco.openweathermap.data.source.model
+package com.urmanco.openweathermap.data.model
 
 data class Current(val temp: String = "default"
                    ,val weather: List<WeatherDetail> = listOf()

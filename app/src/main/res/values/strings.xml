@@ -5,5 +5,11 @@
     <string name="pressure">فشارهوا:</string>
     <string name="humidity">رطوبت:</string>
     <string name="weather_icon">weatherIcon</string>
+    <string name="no_internet">خطا در دسترسی به اینترنت</string>
+    <string name="network_error">خطا در دریافت اطلاعات، دوباره تلاش کنید</string>
+    <string name="default_error"> خطا در انجام عملیات لطفا دوباره تلاش کنید</string>
+    <string name="catch_error">خطا در دریافت اطلاعات لطفا دستگاه خود را به اینترنت متصل نمایید</string>
+    <string name="empty_string"/>
+    <string name="server_error">خطا در دسترسی به سرور</string>
 
 </resources>

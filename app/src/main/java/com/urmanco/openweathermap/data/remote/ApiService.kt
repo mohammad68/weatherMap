@@ -1,6 +1,6 @@
-package com.urmanco.openweathermap.data.source.remote
+package com.urmanco.openweathermap.data.remote
 
-import com.urmanco.openweathermap.data.source.model.Weather
+import com.urmanco.openweathermap.data.model.Weather
 import retrofit2.http.GET
 import retrofit2.http.Query
 

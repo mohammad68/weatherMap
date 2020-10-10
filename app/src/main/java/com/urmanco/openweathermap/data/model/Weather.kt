@@ -1,10 +1,10 @@
-package com.urmanco.openweathermap.data.source.model
+package com.urmanco.openweathermap.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.urmanco.openweathermap.data.source.local.COLUMN_CURRENT
-import com.urmanco.openweathermap.data.source.local.COLUMN_DAILY
+import com.urmanco.openweathermap.data.local.COLUMN_CURRENT
+import com.urmanco.openweathermap.data.local.COLUMN_DAILY
 
 
 @Entity(tableName = "weather")

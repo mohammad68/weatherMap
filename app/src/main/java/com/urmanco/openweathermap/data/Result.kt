@@ -1,18 +1,18 @@
 package com.urmanco.openweathermap.data.source
 
+import com.urmanco.openweathermap.data.error.Error
+
 sealed class Result<out R> {
 
     data class Success<out T>(val data: T): Result<T>()
-    object NetworkError: Result<Nothing>()
-    data class GenericError(val errorMessage: String? = null): Result<Nothing>()
+    data class DataError(val error: Error): Result<Nothing>()
     object Loading: Result<Nothing>()
 
 
     override fun toString(): String {
         return when(this){
-            is Success<*> -> "Success -> $data"
-            is NetworkError -> "Network Error"
-            is GenericError -> "Generic Error ->  Message: $errorMessage"
+            is Success<*> -> "Success[$data]"
+            is DataError -> "Error[errorCode=${error.code} description=${error.description}]"
             Loading -> "Loading"
         }
     }

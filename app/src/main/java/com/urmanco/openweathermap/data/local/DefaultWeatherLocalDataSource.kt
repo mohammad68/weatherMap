@@ -1,9 +1,11 @@
-package com.urmanco.openweathermap.data.source.local
+package com.urmanco.openweathermap.data.local
 
-import com.urmanco.openweathermap.data.source.model.Weather
+import com.urmanco.openweathermap.data.error.CACHE_ERROR
+import com.urmanco.openweathermap.data.error.CACHE_IS_EMPTY
+import com.urmanco.openweathermap.data.error.Error
+import com.urmanco.openweathermap.data.local.db.WeatherDao
+import com.urmanco.openweathermap.data.model.Weather
 import com.urmanco.openweathermap.data.source.Result
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
 import java.lang.Exception
 
 
@@ -13,10 +15,10 @@ class DefaultWeatherLocalDataSource(private val weatherDao: WeatherDao): Weather
         try {
             val weather: Weather? = weatherDao.getWeather()
             weather?.let { return Result.Success(it) }
-            return Result.GenericError(DB_IS_EMPTY)
+            return Result.DataError(Error(CACHE_IS_EMPTY))
 
         } catch (e: Exception) {
-            return Result.GenericError(GET_QUERY_FAILED)
+            return Result.DataError(Error(CACHE_ERROR,e.message))
         }
     }
 

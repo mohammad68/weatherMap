@@ -1,8 +1,8 @@
 package com.urmanco.openweathermap.data.source.local
 
 import com.urmanco.openweathermap.data.source.Result
-import com.urmanco.openweathermap.data.source.WeatherRepository
-import com.urmanco.openweathermap.data.source.model.Weather
+import com.urmanco.openweathermap.data.WeatherRepository
+import com.urmanco.openweathermap.data.model.Weather
 import kotlin.random.Random
 
 class FakeWeatherRepository :

@@ -5,7 +5,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.urmanco.openweathermap.data.source.remote.BASE_URL_IMAGES
+import com.urmanco.openweathermap.data.remote.BASE_URL_IMAGES
 
 object AppUtil {
 

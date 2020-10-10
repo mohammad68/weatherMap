@@ -1,11 +1,7 @@
 package com.urmanco.openweathermap.data.source
 
-import com.urmanco.openweathermap.data.source.model.*
-import com.urmanco.openweathermap.data.source.remote.ApiService
-import okhttp3.OkHttpClient
-import okhttp3.ResponseBody
-import retrofit2.HttpException
-import retrofit2.Response
+import com.urmanco.openweathermap.data.model.*
+import com.urmanco.openweathermap.data.remote.ApiService
 import java.io.IOException
 import java.lang.IllegalStateException
 import kotlin.random.Random

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.urmanco.openweathermap.R
-import com.urmanco.openweathermap.data.source.model.Daily
+import com.urmanco.openweathermap.data.model.Daily
 import com.urmanco.openweathermap.databinding.ItemWeatherBinding
 
 class WeatherAdapter(private val daily:  List<Daily>): RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() {

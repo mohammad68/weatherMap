@@ -1,16 +1,15 @@
 package com.urmanco.openweathermap.data.source.local
 
 import com.google.common.truth.Truth
-import com.urmanco.openweathermap.data.source.DefaultWeatherRepository
+import com.urmanco.openweathermap.data.local.WeatherDataSource
+import com.urmanco.openweathermap.data.DefaultWeatherRepository
 import com.urmanco.openweathermap.data.source.FakeRemoteDataSource
 import com.urmanco.openweathermap.data.source.FakeLocalDataSource
 import com.urmanco.openweathermap.data.source.Result
-import com.urmanco.openweathermap.data.source.WeatherRepository
-import com.urmanco.openweathermap.data.source.model.*
-import com.urmanco.openweathermap.data.source.remote.safeCallApi
+import com.urmanco.openweathermap.data.WeatherRepository
+import com.urmanco.openweathermap.data.model.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import org.junit.Before
 import org.junit.Test
 
 

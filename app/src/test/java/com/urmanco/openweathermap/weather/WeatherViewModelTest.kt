@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
 import com.urmanco.openweathermap.MainCoroutineRule
 import com.urmanco.openweathermap.data.source.local.FakeWeatherRepository
-import com.urmanco.openweathermap.data.source.model.Weather
+import com.urmanco.openweathermap.data.model.Weather
 import com.urmanco.openweathermap.domain.GetWeatherUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before

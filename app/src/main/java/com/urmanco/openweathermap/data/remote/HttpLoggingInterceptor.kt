@@ -1,4 +1,4 @@
-package com.urmanco.openweathermap.data.source.remote
+package com.urmanco.openweathermap.data.remote
 
 import android.util.Log
 import okhttp3.Headers
